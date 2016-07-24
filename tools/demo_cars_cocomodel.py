@@ -85,7 +85,7 @@ def vis_detections_print(draw, class_name, dets, thresh=0.5):
 
 
 
-def demo(net, image_name, classes, savefile, saveimfile):
+def demo(net, image_name, savefile, saveimfile):
     """Detect object classes in an image using pre-computed object proposals."""
 
     # Load the demo image
@@ -208,7 +208,7 @@ if __name__ == '__main__':
         saveim_name = savedir + im_name
         # print '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
         # print 'Demo for data/demo/{}'.format(im_name)
-        demo(net, im_name2, detclass, savefile, saveim_name)
+        demo(net, im_name2, savefile, saveim_name)
 
 
     # plt.show()
