@@ -113,7 +113,7 @@ def demo(net, image_name, classes, savefile, saveimfile):
 
 
     # Visualize detections for each class
-    CONF_THRESH = 0.8
+    CONF_THRESH = 0.5
     NMS_THRESH = 0.3
     for cls_ind, cls in enumerate(CLASSES[1:]):
         cls_ind += 1 # because we skipped background
@@ -129,6 +129,8 @@ def demo(net, image_name, classes, savefile, saveimfile):
         for i in inds:
             bbox = dets[i, :4]
             score = dets[i, -1]
+            fid.write('{0:d}'.format(cls_ind))
+            fid.write(' ')
             fid.write('{0:.3f}'.format(score))
             for j in range(4):
                 fid.write(' ')
