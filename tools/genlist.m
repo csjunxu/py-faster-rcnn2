@@ -12,10 +12,10 @@ for i = 1 : 80
 	s = fscanf(fid, '%s', 1);
 	s = ['"' s '", '];
 	longs = [longs s]; 
-	fprintf(fid2, '%s', longs); 
 
 end
 
+fprintf(fid2, '%s', longs); 
 
 fclose(fid); 
 fclose(fid2); 
