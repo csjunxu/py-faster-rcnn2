@@ -197,9 +197,9 @@ if __name__ == '__main__':
     # samplefolder = 'S01/E0001.mkv/00000007/'
 
     # matches on friends
-    detlist = '/nfs/hn38/users/xiaolonw/dcgan_coco/train_coco_rgb_softmax_sub2_set.txt' 
-    jpgdir  = '/nfs/hn38/users/xiaolonw/dcgan_coco/train_coco_rgb_softmax_sub2_set/'
-    savedir = '/nfs/hn38/users/xiaolonw/dcgan_coco/det_result/train_coco_rgb_softmax_sub2_set/'
+    detlist = '/nfs/hn38/users/xiaolonw/dcgan_coco/train_pascal_rgb_softmax_all_16.txt' 
+    jpgdir  = '/nfs/hn38/users/xiaolonw/dcgan_coco/train_pascal_rgb_softmax_all_16/'
+    savedir = '/nfs/hn38/users/xiaolonw/dcgan_coco/det_result/train_pascal_rgb_softmax_all_16/'
 
     with open(detlist) as f:
         im_names = [x.strip() for x in f.readlines()]
