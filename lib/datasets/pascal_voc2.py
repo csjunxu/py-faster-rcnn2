@@ -18,6 +18,7 @@ import utils.cython_bbox
 import cPickle
 import subprocess
 import uuid
+from fast_rcnn.config import cfg
 from IPython.core.debugger import Tracer
 
 class pascal_voc2(imdb):
