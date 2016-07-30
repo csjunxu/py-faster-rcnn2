@@ -10,6 +10,7 @@ import datasets
 import datasets.pascal_voc2
 import os
 from datasets.imdb import imdb
+import datasets.ds_utils as ds_utils
 import xml.dom.minidom as minidom
 import numpy as np
 import scipy.sparse
