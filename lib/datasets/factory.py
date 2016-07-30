@@ -38,7 +38,7 @@ for year in ['2007', '2012']:
 # Set up voc_<year>_<split> using selective search "fast" mode
 for year in ['2007']:
     for split in [ 'trainval', 'test']:
-        name = 'voc_{}_{}'.format(year, split)
+        name = 'voc2_{}_{}'.format(year, split)
         __sets[name] = (lambda split=split, year=year: pascal_voc2(split, year))
 
 
