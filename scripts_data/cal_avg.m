@@ -5,7 +5,7 @@ txffile = 'scores.txt';
 
 fid = fopen(txffile, 'r');
 sumscore =  0
-for i = 1 : 19
+for i = 1 : 20
 	s = fscanf(fid, '%s', 1);
 	s = fscanf(fid, '%s', 1);
 	score = fscanf(fid, '%f', 1);
@@ -15,5 +15,5 @@ end
 
 fclose(fid);
 
-sumscore = sumscore / 19
+sumscore = sumscore / 20
 
