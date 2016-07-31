@@ -100,7 +100,9 @@ class pascal_voc3(imdb):
         """
         Return the default path where PASCAL VOC is expected to be installed.
         """
-        return os.path.join('/scratch/xiaolonw', 'voc_data_frcnn')
+
+        # return os.path.join(cfg.DATA_DIR, 'VOCdevkit' + self._year)
+        return os.path.join('/scratch/xiaolonw', cfg.DATA_DIR)
 
     def gt_roidb(self):
         """
