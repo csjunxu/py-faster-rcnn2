@@ -338,7 +338,7 @@ layer {
 layer {
   name: "cls_prob"
   type: "Concat"
-  bottom: "cls_score1"
-  bottom: "cls_score2"
+  bottom: "cls_prob1"
+  bottom: "cls_prob2"
   top: "cls_prob"
 }
