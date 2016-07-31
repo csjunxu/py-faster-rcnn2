@@ -298,17 +298,17 @@ layer {
 }
 
 layer {
-  name: "cls_prob1"
+  name: "cls_prob"
   type: "Softmax"
   bottom: "cls_score1"
-  top: "cls_prob1"
+  top: "cls_prob"
 }
-layer {
-  name: "cls_prob2"
-  type: "Softmax"
-  bottom: "cls_score2"
-  top: "cls_prob2"
-}
+#layer {
+#  name: "cls_prob2"
+#  type: "Softmax"
+#  bottom: "cls_score2"
+#  top: "cls_prob2"
+#}
 
 layer {
   name: "bbox_pred"
@@ -336,9 +336,23 @@ layer {
   }
 }
 layer {
-  name: "cls_prob"
-  type: "Concat"
-  bottom: "cls_prob1"
-  bottom: "cls_prob2"
-  top: "cls_prob"
+  name: "slice_pair"
+  type: "Slice"
+  bottom: "bbox_pred"
+  top: "bbox_pred1"
+  top: "bbox_pred2"
+  slice_param {
+    slice_dim: 1
+    slice_point: 84
+  }
 }
+
+
+
+#layer {
+#  name: "cls_prob"
+#  type: "Concat"
+#  bottom: "cls_prob1"
+#  bottom: "cls_prob2"
+#  top: "cls_prob"
+#}
