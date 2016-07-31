@@ -16,6 +16,7 @@ GPU_ID=$1
 NET=$2
 NET_lc=${NET,,}
 DATASET=$3
+NET_FINAL=$4 
 
 array=( $@ )
 len=${#array[@]}
@@ -55,7 +56,7 @@ esac
 
 
 set +x
-NET_FINAL='/nfs.yoda/xiaolonw/faster_rcnn/xiaolonw/py-faster-rcnn2/output/fast_rcnn_pascal/voc3_2007_trainval/vgg_cnn_m_1024_fast_rcnn_iter_80000.caffemodel'
+# NET_FINAL='/nfs.yoda/xiaolonw/faster_rcnn/xiaolonw/py-faster-rcnn2/output/fast_rcnn_pascal/voc3_2007_trainval/vgg_cnn_m_1024_fast_rcnn_iter_80000.caffemodel'
 set -x
 
 time ./tools/test_net.py --gpu ${GPU_ID} \
