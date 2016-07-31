@@ -35,12 +35,6 @@ case $DATASET in
     PT_DIR="pascal_voc2"
     ITERS=40000
     ;;
-  pascal_voc3)
-    TRAIN_IMDB="voc3_2007_trainval"
-    TEST_IMDB="voc3_2007_test"
-    PT_DIR="pascal_voc3"
-    ITERS=80000
-    ;;
   coco)
     TRAIN_IMDB="coco_2014_train"
     TEST_IMDB="coco_2014_minival"
@@ -53,25 +47,17 @@ case $DATASET in
     ;;
 esac
 
-LOG="experiments/logs/fast_rcnn_${NET}_${EXTRA_ARGS_SLUG}.txt.`date +'%Y-%m-%d_%H-%M-%S'`"
-exec &> >(tee -a "$LOG")
-echo Logging output to "$LOG"
-
-time ./tools/train_net.py --gpu ${GPU_ID} \
-  --solver models/${PT_DIR}/${NET}/fast_rcnn/solver3.prototxt \
-  --weights data/imagenet_models/${NET}.v2.caffemodel \
-  --imdb ${TRAIN_IMDB} \
-  --iters ${ITERS} \
-  --cfg experiments/cfgs/fast_rcnn_pascal3.yml \
-  ${EXTRA_ARGS}
 
 set +x
-NET_FINAL=`grep -B 1 "done solving" ${LOG} | grep "Wrote snapshot" | awk '{print $4}'`
+NET_FINAL='/nfs.yoda/xiaolonw/faster_rcnn/xiaolonw/py-faster-rcnn2/output/fast_rcnn_pascal/lonw/py-faster-rcn/vgg_cnn_m_1024_fast_rcnn_iter_80000.caffemodel'
 set -x
 
 time ./tools/test_net.py --gpu ${GPU_ID} \
   --def models/${PT_DIR}/${NET}/fast_rcnn/test.prototxt \
   --net ${NET_FINAL} \
   --imdb ${TEST_IMDB} \
-  --cfg experiments/cfgs/fast_rcnn_pascal3.yml \
+  --cfg experiments/cfgs/fast_rcnn_pascal.yml \
   ${EXTRA_ARGS}
+
+
+
