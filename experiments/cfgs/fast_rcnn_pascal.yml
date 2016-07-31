@@ -3,4 +3,4 @@ TRAIN:
   MORE_SAMPLES: True
   POS_IMAGES: 5011
   SHUFFLE_BOUND: 10022
-DATA_DIR: voc_data_frcnn
+DATA_DIR: /scratch/xiaolonw/voc_data_frcnn

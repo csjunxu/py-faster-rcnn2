@@ -102,7 +102,7 @@ class pascal_voc3(imdb):
         """
 
         # return os.path.join(cfg.DATA_DIR, 'VOCdevkit' + self._year)
-        return os.path.join('/scratch/xiaolonw', cfg.DATA_DIR)
+        return cfg.DATA_DIR
 
     def gt_roidb(self):
         """
