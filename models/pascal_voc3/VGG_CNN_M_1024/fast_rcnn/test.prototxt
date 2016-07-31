@@ -284,6 +284,32 @@ layer {
     }
   }
 }
+
+layer {
+  name: "slice_pair"
+  type: "Slice"
+  bottom: "cls_score"
+  top: "cls_score1"
+  top: "cls_score2"
+  slice_param {
+    slice_dim: 1
+    slice_point: 21
+  }
+}
+
+layer {
+  name: "cls_prob1"
+  type: "Softmax"
+  bottom: "cls_score1"
+  top: "cls_prob1"
+}
+layer {
+  name: "cls_prob2"
+  type: "Softmax"
+  bottom: "cls_score2"
+  top: "cls_prob2"
+}
+
 layer {
   name: "bbox_pred"
   type: "InnerProduct"
@@ -311,7 +337,8 @@ layer {
 }
 layer {
   name: "cls_prob"
-  type: "Softmax"
-  bottom: "cls_score"
+  type: "Concat"
+  bottom: "cls_score1"
+  bottom: "cls_score2"
   top: "cls_prob"
 }
