@@ -33,7 +33,7 @@ class pascal_voc2(imdb):
         clasnum = 20
         classes = ['__background__']
         for i in range(clasnum):
-          classes.append(str(i))
+          classes.append(str(i + 1))
         self._classes=tuple(classes)
 
 
