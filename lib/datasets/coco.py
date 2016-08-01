@@ -286,7 +286,7 @@ class coco(imdb):
         # COCO_val2014_0/COCO_val2014_000000447/COCO_val2014_000000447991.mat
         file_name = ('COCO_' + self._data_name +
                      '_' + str(index).zfill(12) + '.mat')
-        return osp.join(file_name[:14], file_name[:22], file_name)
+        return file_name #osp.join(file_name[:14], file_name[:22], file_name)
 
     def _print_detection_eval_metrics(self, coco_eval):
         IoU_lo_thresh = 0.5
