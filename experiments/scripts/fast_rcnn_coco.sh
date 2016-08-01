@@ -65,11 +65,13 @@ echo Logging output to "$LOG"
 
 time ./tools/train_net.py --gpu ${GPU_ID} \
   --solver models/${PT_DIR}/${NET}/fast_rcnn/solver.prototxt \
-  --weights data/imagenet_models/${NET}.v2.caffemodel \
+  --weights output/fast_rcnn_coco/coco_2014_train/vgg_cnn_m_1024_fast_rcnn_iter_90000.caffemodel \
   --imdb ${TRAIN_IMDB} \
   --iters ${ITERS} \
   --cfg experiments/cfgs/fast_rcnn_coco_ori.yml \
   ${EXTRA_ARGS}
+
+#   --weights data/imagenet_models/${NET}.v2.caffemodel \
 
 
 set +x
@@ -82,6 +84,7 @@ time ./tools/test_net.py --gpu ${GPU_ID} \
   --imdb ${TEST_IMDB} \
   --cfg experiments/cfgs/fast_rcnn_coco_ori.yml \
   ${EXTRA_ARGS}
+
 
 
 
