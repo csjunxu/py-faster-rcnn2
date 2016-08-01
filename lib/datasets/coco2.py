@@ -225,10 +225,10 @@ class coco2(imdb):
             boxes = boxes[:top_k, :]
             box_list.append(boxes)
             # Sanity check
-            im_ann = self._COCO.loadImgs(index)[0]
-            width = im_ann['width']
-            height = im_ann['height']
-            ds_utils.validate_boxes(boxes, width=width, height=height)
+            # im_ann = self._COCO.loadImgs(index)[0]
+            # width = im_ann['width']
+            # height = im_ann['height']
+            # ds_utils.validate_boxes(boxes, width=width, height=height)
         return self.create_roidb_from_box_list(box_list, gt_roidb)
 
 
