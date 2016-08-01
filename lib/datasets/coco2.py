@@ -276,7 +276,8 @@ class coco2(imdb):
             overlaps[ix, cls] = 1.0
             seg_areas[ix] = (boxes[ix, 2] - boxes[ix, 0] + 1) * (boxes[ix, 3] - boxes[ix, 1] + 1)
 
-        assert (boxes[:, 2] >= boxes[:, 0]).all()
+        if num_objs > 0:
+            assert (boxes[:, 2] >= boxes[:, 0]).all()
 
         overlaps = scipy.sparse.csr_matrix(overlaps)
 
