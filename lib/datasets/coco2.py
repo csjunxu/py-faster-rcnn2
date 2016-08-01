@@ -66,7 +66,7 @@ class coco2(imdb):
         self._image_ext = '.jpg'
         self._image_index = self._load_image_set_index()
         # Default to roidb handler
-        self.set_proposal_method('MCG')
+        self.set_proposal_method('mcg')
         self._salt = str(uuid.uuid4())
 
         # PASCAL specific config options
