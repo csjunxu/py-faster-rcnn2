@@ -12,6 +12,7 @@ __sets = {}
 from datasets.pascal_voc import pascal_voc
 from datasets.pascal_voc2 import pascal_voc2
 from datasets.pascal_voc3 import pascal_voc3
+from datasets.pascal_voc4 import pascal_voc4
 from datasets.nyud2_voc import nyud2_voc
 from datasets.nyud3_voc import nyud3_voc
 from datasets.coco import coco
@@ -47,6 +48,11 @@ for year in ['2007']:
     for split in [ 'trainval', 'test']:
         name = 'voc3_{}_{}'.format(year, split)
         __sets[name] = (lambda split=split, year=year: pascal_voc3(split, year))
+
+for year in ['2007']:
+    for split in [ 'trainval' ]:
+        name = 'voc4_{}_{}'.format(year, split)
+        __sets[name] = (lambda split=split, year=year: pascal_voc4(split, year))
 
 
 
