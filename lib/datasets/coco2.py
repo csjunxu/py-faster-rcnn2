@@ -47,7 +47,7 @@ def _filter_crowd_proposals(roidb, crowd_thresh):
 
 class coco2(imdb):
     def __init__(self, image_set, year, devkit_path=None):
-        imdb.__init__(self, 'coco2' + year + '_' + image_set)
+        imdb.__init__(self, 'coco2_' + year + '_' + image_set)
         self._year = year
         self._devkit_path = self._get_default_path() if devkit_path is None \
                             else devkit_path
