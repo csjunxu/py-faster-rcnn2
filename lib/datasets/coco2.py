@@ -211,7 +211,7 @@ class coco2(imdb):
 
             box_file = osp.join(
                 cfg.DATA_DIR, 'coco_proposals', method, 'mat',
-                self._image_index[i]] + '.mat') 
+                self._image_index[i] + '.mat') 
 
             raw_data = sio.loadmat(box_file)['boxes']
             boxes = np.maximum(raw_data - 1, 0).astype(np.uint16)
