@@ -183,7 +183,7 @@ class coco(imdb):
                 print '{:d} / {:d}'.format(i + 1, len(self._image_index))
 
             box_file = osp.join(
-                cfg.DATA_DIR, 'coco_proposals', method, 'mat',
+                cfg.DATA_DIR, 'coco_proposals', method, 'mat', self._image_set,
                 self._get_box_file(index))
 
             raw_data = sio.loadmat(box_file)['boxes']
