@@ -9,6 +9,7 @@ import python_utils.general_utils as g_utils
 import datasets
 import datasets.coco2
 import os
+import os.path as osp
 from datasets.imdb import imdb
 import datasets.ds_utils as ds_utils
 import xml.dom.minidom as minidom
