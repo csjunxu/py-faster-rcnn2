@@ -1,0 +1,6 @@
+EXP_DIR: fast_rcnn_pascal_21cls2
+DATA_DIR: /scratch/xiaolonw/voc_data_frcnn_21_2
+TRAIN:
+  MORE_SAMPLES: True
+  POS_IMAGES: 5011
+  SHUFFLE_BOUND: 10022
