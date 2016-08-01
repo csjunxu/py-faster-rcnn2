@@ -253,8 +253,8 @@ class coco2(imdb):
             nowbox = obj['bbox'][0] - 1
             x1 = np.max((0, nowbox[0]))
             y1 = np.max((0, nowbox[1]))
-            x2 = np.min((width - 1, nowbox[2]))
-            y2 = np.min((height - 1, nowbox[3]))
+            x2 = np.min((width - 1, np.max((0, nowbox[2])) ))
+            y2 = np.min((height - 1,np.max((0, nowbox[3])) ))
             if x2 > x1 and y2 > y1:
                 valid_objs.append(obj)
 
