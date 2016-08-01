@@ -15,6 +15,7 @@ from datasets.pascal_voc3 import pascal_voc3
 from datasets.nyud2_voc import nyud2_voc
 from datasets.nyud3_voc import nyud3_voc
 from datasets.coco import coco
+from datasets.coco2 import coco2
 import numpy as np
 
 
@@ -54,6 +55,13 @@ for year in ['2014']:
     for split in ['train', 'val', 'minival', 'valminusminival']:
         name = 'coco_{}_{}'.format(year, split)
         __sets[name] = (lambda split=split, year=year: coco(split, year))
+
+# Set up coco_2014_<split>
+for year in ['2014']:
+    for split in ['train']:
+        name = 'coco2_{}_{}'.format(year, split)
+        __sets[name] = (lambda split=split, year=year: coco2(split, year))
+
 
 # Set up coco_2015_<split>
 for year in ['2015']:
