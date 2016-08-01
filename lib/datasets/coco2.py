@@ -258,6 +258,7 @@ class coco2(imdb):
             if x2 > x1 and y2 > y1:
                 valid_objs.append(obj)
 
+
         objs = valid_objs
         num_objs = len(objs)
 
@@ -271,7 +272,13 @@ class coco2(imdb):
         for ix, obj in enumerate(objs):
             # Make pixel indexes 0-based
             cls = self._class_to_ind.get(str(obj['class'][0]))
-            boxes[ix, :] = obj['bbox'][0] - 1
+            
+            nowbox = obj['bbox'][0] - 1
+            boxes[ix, 0] = np.max((0, nowbox[0]))
+            boxes[ix, 1] = np.max((0, nowbox[1]))
+            boxes[ix, 2] = np.min((width  - 1, np.max((0, nowbox[2])) ))
+            boxes[ix, 3] = np.min((height - 1,np.max((0, nowbox[3])) ))
+
             gt_classes[ix] = cls
             overlaps[ix, cls] = 1.0
             seg_areas[ix] = (boxes[ix, 2] - boxes[ix, 0] + 1) * (boxes[ix, 3] - boxes[ix, 1] + 1)
