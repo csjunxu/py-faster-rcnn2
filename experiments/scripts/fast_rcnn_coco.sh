@@ -68,8 +68,21 @@ time ./tools/train_net.py --gpu ${GPU_ID} \
   --weights data/imagenet_models/${NET}.v2.caffemodel \
   --imdb ${TRAIN_IMDB} \
   --iters ${ITERS} \
-  --cfg experiments/cfgs/fast_rcnn_coco.yml \
+  --cfg experiments/cfgs/fast_rcnn_coco_ori.yml \
   ${EXTRA_ARGS}
+
+
+set +x
+NET_FINAL=`grep -B 1 "done solving" ${LOG} | grep "Wrote snapshot" | awk '{print $4}'`
+set -x
+
+time ./tools/test_net.py --gpu ${GPU_ID} \
+  --def models/${PT_DIR}/${NET}/fast_rcnn/test.prototxt \
+  --net ${NET_FINAL} \
+  --imdb ${TEST_IMDB} \
+  --cfg experiments/cfgs/fast_rcnn_coco_ori.yml \
+  ${EXTRA_ARGS}
+
 
 
 

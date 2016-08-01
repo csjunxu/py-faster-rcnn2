@@ -1,0 +1,6 @@
+EXP_DIR: fast_rcnn_coco
+DATA_DIR: /scratch/xiaolonw/coco_origin
+TRAIN:
+  PROPOSAL_METHOD: mcg
+TEST:
+  PROPOSAL_METHOD: mcg
