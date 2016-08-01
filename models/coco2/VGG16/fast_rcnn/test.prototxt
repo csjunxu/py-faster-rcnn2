@@ -455,7 +455,7 @@ layer {
     decay_mult: 0
   }
   inner_product_param {
-    num_output: 81
+    num_output: 161
     weight_filler {
       type: "gaussian"
       std: 0.01
@@ -466,11 +466,32 @@ layer {
     }
   }
 }
+
+
 layer {
-  name: "bbox_pred"
+  name: "slice_pair"
+  type: "Slice"
+  bottom: "cls_score"
+  top: "cls_score1"
+  top: "cls_score2"
+  slice_param {
+    slice_dim: 1
+    slice_point: 81
+  }
+}
+
+layer {
+  name: "cls_prob"
+  type: "Softmax"
+  bottom: "cls_score1"
+  top: "cls_prob"
+}
+
+layer {
+  name: "bbox_pred_more"
   type: "InnerProduct"
   bottom: "fc7"
-  top: "bbox_pred"
+  top: "bbox_pred_more"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -480,7 +501,7 @@ layer {
     decay_mult: 0
   }
   inner_product_param {
-    num_output: 324
+    num_output: 644
     weight_filler {
       type: "gaussian"
       std: 0.001
@@ -491,9 +512,16 @@ layer {
     }
   }
 }
+
+
 layer {
-  name: "cls_prob"
-  type: "Softmax"
-  bottom: "cls_score"
-  top: "cls_prob"
+  name: "slice_pair"
+  type: "Slice"
+  bottom: "bbox_pred_more"
+  top: "bbox_pred"
+  top: "bbox_pred2"
+  slice_param {
+    slice_dim: 1
+    slice_point: 324
+  }
 }

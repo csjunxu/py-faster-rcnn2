@@ -11,7 +11,7 @@ layer {
   python_param {
     module: 'roi_data_layer.layer'
     layer: 'RoIDataLayer'
-    param_str: "'num_classes': 81"
+    param_str: "'num_classes': 161"
   }
 }
 layer {
@@ -431,7 +431,7 @@ layer {
     lr_mult: 2
   }
   inner_product_param {
-    num_output: 81
+    num_output: 161
     weight_filler {
       type: "gaussian"
       std: 0.01
@@ -443,10 +443,10 @@ layer {
   }
 }
 layer {
-  name: "bbox_pred"
+  name: "bbox_pred_more"
   type: "InnerProduct"
   bottom: "fc7"
-  top: "bbox_pred"
+  top: "bbox_pred_more"
   param {
     lr_mult: 1
   }
@@ -454,7 +454,7 @@ layer {
     lr_mult: 2
   }
   inner_product_param {
-    num_output: 324
+    num_output: 644
     weight_filler {
       type: "gaussian"
       std: 0.001
@@ -476,7 +476,7 @@ layer {
 layer {
   name: "loss_bbox"
   type: "SmoothL1Loss"
-  bottom: "bbox_pred"
+  bottom: "bbox_pred_more"
   bottom: "bbox_targets"
   bottom: "bbox_inside_weights"
   bottom: "bbox_outside_weights"
