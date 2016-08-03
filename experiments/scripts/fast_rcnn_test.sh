@@ -49,11 +49,11 @@ esac
 
 
 set +x
-NET_FINAL='/nfs.yoda/xiaolonw/faster_rcnn/xiaolonw/py-faster-rcnn2/output/fast_rcnn_pascal/voc3_2007_trainval/vgg_cnn_m_1024_fast_rcnn2_2double_iter_80000.caffemodel'
+NET_FINAL='/nfs.yoda/xiaolonw/faster_rcnn/xiaolonw/py-faster-rcnn2/output/fast_rcnn_pascal_21cls/voc4_2007_trainval/vgg_cnn_m_1024_21cls_iter_80000.caffemodel'
 set -x
 
 time ./tools/test_net.py --gpu ${GPU_ID} \
-  --def models/pascal_voc3/VGG_CNN_M_1024/fast_rcnn/test.prototxt \
+  --def models/pascal_voc4/VGG_CNN_M_1024/fast_rcnn/test.prototxt \
   --net ${NET_FINAL} \
   --imdb ${TEST_IMDB} \
   ${EXTRA_ARGS}
