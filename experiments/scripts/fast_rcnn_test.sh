@@ -53,7 +53,7 @@ NET_FINAL='/nfs.yoda/xiaolonw/faster_rcnn/xiaolonw/py-faster-rcnn2/output/fast_r
 set -x
 
 time ./tools/test_net.py --gpu ${GPU_ID} \
-  --def models/pascal_voc3/VGG_CNN_M_1024/fast_rcnn/test2.prototxt \
+  --def models/pascal_voc3/VGG_CNN_M_1024/fast_rcnn/test3.prototxt \
   --net ${NET_FINAL} \
   --imdb ${TEST_IMDB} \
   ${EXTRA_ARGS}
