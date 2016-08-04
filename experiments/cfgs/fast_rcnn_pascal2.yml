@@ -4,3 +4,4 @@ TRAIN:
   POS_IMAGES: 5011
   SHUFFLE_BOUND: 10022
 DATA_DIR: /scratch/xiaolonw/voc_data_frcnn2
+
