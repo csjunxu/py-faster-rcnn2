@@ -1,0 +1,4 @@
+EXP_DIR: fast_rcnn_coco2_ori
+DATA_DIR: /scratch/xiaolonw/coco_data_frcnn
+TRAIN:
+  PROPOSAL_METHOD: mcg
