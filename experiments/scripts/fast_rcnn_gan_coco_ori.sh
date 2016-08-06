@@ -53,7 +53,7 @@ case $DATASET in
     PT_DIR="coco2"
     ITERS=280000
     ;;
-  coco2)
+  coco_ori)
     TRAIN_IMDB="coco_ori_2014_train"
     TEST_IMDB="coco_ori_2014_minival"
     PT_DIR="coco_ori"
