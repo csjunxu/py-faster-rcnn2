@@ -60,7 +60,7 @@ case $DATASET in
 esac
 
 set +x
-NET_FINAL='/nfs.yoda/xiaolonw/faster_rcnn/xiaolonw/py-faster-rcnn2/output/fast_rcnn_coco/coco2_2014_train/vgg16_fast_rcnn_fg25_8in_iter_560000.caffemodel'
+NET_FINAL='/nfs.yoda/xiaolonw/faster_rcnn/xiaolonw/py-faster-rcnn2/output/fast_rcnn_coco/coco2_2014_train/vgg16_fast_rcnn_iter_320000.caffemodel'
 set -x
 
 time ./tools/test_net.py --gpu ${GPU_ID} \
